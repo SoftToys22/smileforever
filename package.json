@@ -1,0 +1,24 @@
+{
+  "name": "smileforever",
+  "version": "1.0.0",
+  "description": "1. Introduction\r 2. Install Tools\r 3. Create React App\r 4. Create Git Repository\r 5. List Products\r 6. Add routing\r 7. Create Node.JS Server\r 8. Fetch Products From Sb\r 9. Manage state by reducer hook\r 10. Add bootstrap UI Framework\r 11. Create Product and Rating Component\r 12. Create Product Details Screen\r 13. Create Loading and Message Component\r 14. Implement Add To Cart\r 15. Complete Add To Cart\r 16. Create Cart Screen\r 17. Complete Cart Screen\r 18. Create Signin Screen\r 19. Connect To mongodb database\r 20. Seed Sample Data\r 21. Seed Sample Users\r 22. Create Signin Backend API\r 23. Complete Signin Screen\r 24. Create Shipping Screen\r 25. Create Sign Up Screen\r 26. Implement Select Payment Method Screen\r 27. Create PLace Order Screen\r 28. Implement Place Order Action\r 29. Create Order Screen\r 30. Pay Order By PayPal\r 31. Display Order History\r 32. Create Profile Screen\r 33. Publish To Heroku",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd sb && npm install && cd ../sf && npm install && npm run build",
+    "start": "node sb/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoftToys22/smileforever.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoftToys22/smileforever/issues"
+  },
+  "homepage": "https://github.com/SoftToys22/smileforever#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2"
+  }
+}
