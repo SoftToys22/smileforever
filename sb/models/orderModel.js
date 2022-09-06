@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema(
   {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+
     orderItems: [
       {
         slug: { type: String, required: true },
@@ -9,11 +11,6 @@ const orderSchema = new mongoose.Schema(
         quantity: { type: Number, required: true },
         Image: { type: String, required: true },
         price: { type: Number, required: true },
-        products: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Product',
-          required: true,
-        },
       },
     ],
     shippingAddress: {
@@ -35,10 +32,10 @@ const orderSchema = new mongoose.Schema(
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    isPaid: { type: Boolean, default: false },
+
+    isPaid: { type: Boolean, required: true, default: false },
     paidAt: { type: Date },
-    isDelivered: { type: Boolean, default: false },
+    isDelivered: { type: Boolean, required: true, default: false },
     deliveredAt: { type: Date },
   },
   {
