@@ -184,7 +184,7 @@ function App() {
                     <OrderScreen />
                   </ProtectedRoute>
                 }
-              />
+              ></Route>
               <Route
                 path="/orderhistory"
                 element={

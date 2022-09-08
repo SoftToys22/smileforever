@@ -37,4 +37,3 @@
 33. Publish To Heroku
 34. Add Sidebar and Search Box
 35. Create Search Screen
-36. Create Admin Menu
