@@ -6,6 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import { useNavigate } from 'react-router-dom';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,6 +24,7 @@ const reducer = (state, action) => {
 export default function OrderHistoryScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
+  const navigate = useNavigate();
 
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
@@ -30,8 +32,8 @@ export default function OrderHistoryScreen() {
   });
   useEffect(() => {
     const fetchData = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
       try {
-        dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(`/api/orders/mine`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
@@ -81,7 +83,13 @@ export default function OrderHistoryScreen() {
                     : 'No'}
                 </td>
                 <td>
-                  <Button type="button" variant="light">
+                  <Button
+                    type="button"
+                    variant="light"
+                    onClick={() => {
+                      navigate(`/orders/${order._id}`);
+                    }}
+                  >
                     Details
                   </Button>
                 </td>
