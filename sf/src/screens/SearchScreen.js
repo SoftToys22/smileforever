@@ -1,4 +1,4 @@
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
         loading: false,
       };
     case 'FETCH_FAIL':
-      return { ...state, loding: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;
@@ -56,7 +56,7 @@ export const ratings = [
   },
   {
     name: '3stars &up',
-    rating: 2,
+    rating: 3,
   },
   {
     name: '2stars & up',
@@ -88,7 +88,7 @@ export default function SearchScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await Axios.get(
+        const { data } = await axios.get(
           `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
         dispatch({ type: 'FETCH_SUCCES', payload: data });
@@ -178,27 +178,29 @@ export default function SearchScreen() {
               ))}
             </ul>
           </div>
-          <h3>Avg. Customer Review</h3>
-          <ul>
-            {ratings.map((r) => (
-              <li key={r.name}>
+          <div>
+            <h3>Avg. Customer Review</h3>
+            <ul>
+              {ratings.map((r) => (
+                <li key={r.name}>
+                  <Link
+                    to={getFilterUrl({ rating: r.rating })}
+                    className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                  >
+                    <Rating caption={' & up'} rating={r.rating}></Rating>
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  to={getFilterUrl({ rating: r.rating })}
-                  className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                  to={getFilterUrl({ rating: 'all' })}
+                  className={rating === 'all' ? 'text-bold' : ''}
                 >
-                  <Rating caption={' & up'} rating={r.rating}></Rating>
+                  <Rating caption={' & up'} rating={0}></Rating>
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link
-                to={getFilterUrl({ rating: 'all' })}
-                className={rating === 'all' ? 'text-bold' : ''}
-              >
-                <Rating caption={' & up'} rating={0}></Rating>
-              </Link>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </Col>
         <Col md={9}>
           {loading ? (

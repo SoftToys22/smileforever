@@ -69,7 +69,7 @@ function App() {
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Navbar bg="dark" variant="dark" expand="lg">
-            <container>
+            <Container>
               <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
@@ -132,7 +132,7 @@ function App() {
                   )}
                 </Nav>
               </Navbar.Collapse>
-            </container>
+            </Container>
           </Navbar>
         </header>
         <div

@@ -12,9 +12,9 @@ const reducer = (state, action) => {
     case 'UPDATE_REQUEST':
       return { ...state, loadingUpdate: true };
     case 'UPDATE_SUCCESS':
-      return { ...state, loadingUpdate: true };
+      return { ...state, loadingUpdate: false };
     case 'UPDATE_FAIL':
-      return { ...state, loadingUpdate: true };
+      return { ...state, loadingUpdate: false };
 
     default:
       return state;
