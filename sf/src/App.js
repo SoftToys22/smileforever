@@ -160,7 +160,7 @@ function App() {
         </div>
         <main>
           <Container className="mt-3"></Container>
-          <container>
+          <Container>
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -211,7 +211,7 @@ function App() {
 
               <Route path="/" element={<HomeScreen />} />
             </Routes>
-          </container>
+          </Container>
         </main>
         <footer>
           <div className="text-center">All rights reserved</div>
