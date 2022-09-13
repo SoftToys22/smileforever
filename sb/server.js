@@ -15,7 +15,7 @@ mongoose
     console.log('connected to db');
   })
   .catch((err) => {
-    console.log(err.message);
+    console.log(err?.message);
   });
 
 const app = express();
@@ -39,7 +39,7 @@ app.get('/', (req, res) =>
 );
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
+  res.status(500).send({ message: err?.message });
 });
 
 const port = process.env.PORT || 5000;
