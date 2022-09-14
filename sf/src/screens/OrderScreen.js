@@ -120,7 +120,7 @@ export default function OrderScreen() {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         paypalDispatch({
-          type: 'resetOptios',
+          type: 'resetOptions',
           value: {
             'client-id': clientId,
             currency: 'RS',
@@ -228,8 +228,12 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Order Total</Col>
-                    <Col>${order.totalPrice}</Col>
+                    <Col>
+                      <strong>Order Total</strong>
+                    </Col>
+                    <Col>
+                      <strong>${order.totalPrice}</strong>
+                    </Col>
                   </Row>
                 </ListGroup.Item>
                 {!order.isPaid && (
