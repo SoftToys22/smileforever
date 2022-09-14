@@ -20,7 +20,7 @@ const reducer = (state, action) => {
     case 'FETCH_SUCCESS':
       return {
         ...state,
-        products: action.payload.products,
+        products: action.payload?.products,
         page: action.payload.page,
         pages: action.payload.pages,
         countProducts: action.payload.countProducts,
